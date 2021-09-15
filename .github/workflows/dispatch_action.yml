@@ -1,0 +1,16 @@
+name: Dispatch
+
+on:
+  pull_request: {}
+
+jobs:
+  test:
+    name: Dispatch Event
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.DISPATCH_TOKEN }}
+          event-type: repository-a-release
+          repository: Skarlso/repository-source
